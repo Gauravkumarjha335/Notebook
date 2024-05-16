@@ -15,8 +15,7 @@ const signscima = mongoose.Schema({
         type : String,
         require : true 
     },
-    date
-    {
+    date:{
         type : Date,
         require : true
     }
