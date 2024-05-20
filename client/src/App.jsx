@@ -12,7 +12,7 @@ function App() {
     <>
 
       <BrowserRouter>
-        <h3 style={{ textAlign: 'center' }}>Application</h3>
+     
         <Routes>
           <Route index element={<Login />} />
           <Route path="signup" element={<Signup />} />

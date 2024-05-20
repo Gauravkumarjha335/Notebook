@@ -38,6 +38,17 @@ body {
     cursor: pointer;
     *margin-left: .3em;
 }
+a{
+    color: white !important;
+    list-style: none !important;
+}
+
+li{
+    list-style: none !important;
+}
+ul{
+    list-style: none !important;
+}
 
 .btn:hover,
 .btn:active,

@@ -1,10 +1,16 @@
 import React from 'react'
+import IndexNavbar from './IndexNavbar'
+import Blogform from './Blogform'
+import ShowBlog from './ShowBlog'
 
 function Home() {
   return (
     <>
 
-      <h1>welcome to homepage</h1>
+      {/* <IndexNavbar />/ */}
+      home
+      {/* <Blogform /> */}
+      <ShowBlog />
     </>
   )
 }

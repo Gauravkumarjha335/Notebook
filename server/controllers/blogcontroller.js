@@ -3,9 +3,7 @@ import notemodel from '../models/notemodel.js'
 
 
 export const createblog = async(req , res)=>{
-     if (condition) {
-        
-     }
+  
     const { title , description , date } = req.body;
 
     try {
