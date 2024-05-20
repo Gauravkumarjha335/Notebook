@@ -4,7 +4,7 @@ import { logincontroller , signupcontroller } from '../controllers/authcontrolle
 
 const router = express.Router();
 
-router.get('login', logincontroller)
-router.get('/signup', signupcontroller)
+router.post('/login', logincontroller)
+router.post('/signup', signupcontroller)
 
 export default router;

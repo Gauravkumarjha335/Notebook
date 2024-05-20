@@ -19,7 +19,7 @@ const Userschime = mongoose.Schema({
         type : Date,
         require : true
     }
-    
 })
 
-export default Userschime;
+const usermodel = mongoose.model('users' , Userschime)
+export default usermodel;

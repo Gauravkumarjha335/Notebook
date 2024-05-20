@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "react-router-dom": "^6.23.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }
