@@ -1,6 +1,7 @@
 import usermodel from '../models/Usermodel.js';
 import jwt from 'jsonwebtoken';
-
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken';
 const JWT_SECRET = 'Gaurav';
 
 
@@ -15,15 +16,18 @@ export const signupcontroller = async (req, res) => {
       return res.status(400).json({ error: 'User already exist with that email', email });
     }
   }
+  // hash password   
+
+  const saltround = 10;
+  const hashpassword = await bcrypt.hash(password, saltround)
 
   try {
-    const newUser = new usermodel({ email, name, password });
+    const usercreate = usermodel.create({ email, name, password: hashpassword });
 
-    await newUser.save();
+const token = jwt.sign({userId : user._id} , 'your secrete key' , {})
 
-    res.json({
-      message: "User created successfully",
-    });
+
+    res.status(201).json({ msg: usercreate})
   } catch (error) {
     console.error("Error creating user:", error);
     res.status(500).json({
@@ -42,11 +46,21 @@ export const logincontroller = async (req, res) => {
   try {
     let user = await usermodel.findOne({ email });
 
+    const ispasswordmatch = await bcrypt.compare(password, user.password);
+
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
-    } else {
-      return res.status(200).json({ message: 'User login successful' });
     }
+
+    if (!ispasswordmatch) {
+      res.status(401).json({
+        message: 'invald password'
+      })
+    }
+
+    return res.status(200).json({
+      message: 'User Login Successful'
+    })
 
   } catch (error) {
     console.error(error.message);
