@@ -9,7 +9,7 @@ import cors from 'cors';
 
 
 const PORT = 8000;
-const app = express();
+const app = express();  
 app.use(bodyParser.json())
 
 

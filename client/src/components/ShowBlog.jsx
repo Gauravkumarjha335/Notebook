@@ -1,36 +1,34 @@
-import { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'; // Assuming you're using axios for making HTTP requests
 
 function ShowBlog() {
-    const [blogdata, setblogdata] = useState([]);
+    const [blogData, setBlogData] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchBlogData = async () => {
             try {
-                const response = await fetch('/api/auth/blog');
-                const data = await response.json();
-                setblogdata(data);
+                const response = await axios.get('http://localhost:8000/api/auth/showblog');
+                setBlogData(response.data);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching blog data:', error);
             }
         };
 
-        fetchData();
+        fetchBlogData();
     }, []);
 
     return (
-        <>
-            <Container>
-                <Row>
-                    {blogdata.map((item) => (
-                        <Col key={item.id}>
-                            <h1>{item.title}</h1>
-                            <p>{item.description}</p>
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
-        </>
+        <div>
+            <h1>Blog Posts</h1>
+            <div>
+                {blogData.map(blog => (
+                    <div key={blog._id}>
+                        <h2>{blog.title}</h2>
+                        <p>{blog.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 }
 

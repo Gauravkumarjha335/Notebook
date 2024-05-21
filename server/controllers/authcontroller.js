@@ -1,5 +1,5 @@
 import usermodel from '../models/Usermodel.js';
-import jwt from 'jsonwebtoken';
+
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken';
 const JWT_SECRET = 'Gaurav';
@@ -24,10 +24,10 @@ export const signupcontroller = async (req, res) => {
   try {
     const usercreate = usermodel.create({ email, name, password: hashpassword });
 
-const token = jwt.sign({userId : user._id} , 'your secrete key' , {})
 
 
-    res.status(201).json({ msg: usercreate})
+
+    res.status(201).json({ msg: usercreate })
   } catch (error) {
     console.error("Error creating user:", error);
     res.status(500).json({
