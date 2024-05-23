@@ -2,15 +2,20 @@ import React from 'react'
 import IndexNavbar from './IndexNavbar'
 import Blogform from './Blogform'
 import ShowBlog from './ShowBlog'
-
+import { Container } from 'reactstrap'
 function Home() {
   return (
     <>
 
-      {/* <IndexNavbar />/ */}
-      home
-      {/* <Blogform /> */}
-      <ShowBlog />
+      <IndexNavbar />/
+
+      <Blogform />
+
+
+      <Container style={{marginTop : '100px'}}>
+        <ShowBlog />
+      </Container>
+
     </>
   )
 }

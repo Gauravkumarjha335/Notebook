@@ -12,24 +12,24 @@ function Blogform() {
     const handlechange = (e) => {
         setformdata({ ...formdata, [e.target.name]: e.target.value });
     }
-    // const handleSubmit = async () => {
-    //     try {
-    //         const response = await fetch('/api/auth/blog', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(formdata)
-    //         });
-    //         if (response.ok) {
-    //             alert("blog created Sussfully")
-    //         } else {
-    //             alert("Blog not Created ")
-    //         }
-    //     } catch (error) {
-    //         console.error('An error occurred:', error);
-    //     }
-    // }
+    const handleSubmit = async () => {
+        try {
+            const response = await fetch('/api/auth/blog', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formdata)
+            });
+            if (response.ok) {
+                alert("blog created Sussfully")
+            } else {
+                alert("Blog not Created ")
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+    }
     return (
         <>
             <Container style={{ margin: 'auto' }} >

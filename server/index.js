@@ -3,23 +3,18 @@ import database from './database/db.js';
 import userrouter from './routes/userrouters.js'
 import bodyParser from 'body-parser'
 import blogrouter from './routes/blogroutes.js'
-
+import dotenv  from 'dotenv'
 import cors from 'cors';
+import session  from 'express-session';
+import jwt  from 'jsonwebtoken';
+const JWT_SECRET = 'Harryisagoodb$oy';
+dotenv.config();
 
 
-
-const PORT = 8000;
+let PORT = process.env.PORT || 8000;
 const app = express();  
 app.use(bodyParser.json())
 
-
-
-// app.use(
-//     cors({
-//       origin: true,
-//       credentials: true,
-//     })
-//   );
 
 
 app.use(cors());

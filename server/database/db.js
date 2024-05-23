@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const URL = "mongodb://localhost:27017/inootbook";
+const URL = process.env.PORT || "mongodb://localhost:27017/inootbook";
 
 const database = () => {
     mongoose.connect(URL).then(()=>{
