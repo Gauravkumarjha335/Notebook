@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
 
-      <IndexNavbar />/
+      <IndexNavbar />
 
       <Blogform />
 
