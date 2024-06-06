@@ -12,7 +12,7 @@ function Home() {
       <Blogform />
 
 
-      <Container style={{marginTop : '100px'}}>
+      <Container style={{ marginTop: '100px' }}>
         <ShowBlog />
       </Container>
 

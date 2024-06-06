@@ -13,8 +13,12 @@ function ShowBlog() {
     useEffect(() => {
         var fetchBlogData = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/auth/showblog');
-                setBlogData(response.data);
+                const response = await fetch('/api/auth/showblog');
+                const responsejson = await response.json();
+                setBlogData(responsejson)
+
+
+                // setBlogData(response.data);
             } catch (error) {
                 console.error('Error fetching blog data:', error);
             }
@@ -25,9 +29,9 @@ function ShowBlog() {
 
 
 
-    const handleDeleteBlog = async () => {
+    const handleDeleteBlog = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:8000/api/auth/deleteblog`).then(() => {
+            const response = await axios.delete(`http://localhost:8000/api/auth/deleteblog/${id}`).then(() => {
                 if (response.ok) {
                     alert("blog deleted Sussefully")
                 }
@@ -36,7 +40,7 @@ function ShowBlog() {
 
         } catch (error) {
             console.error('Error deleting blog:', error);
-           
+
         }
     };
 
@@ -49,7 +53,7 @@ function ShowBlog() {
                     {Array.isArray(blogData) && blogData.map((blog) => (
                         <Col md={2} style={{ boxSizing: 'border-box', border: '1px solid black', padding: '10px' }} key={blog._id}>
 
-                            <h3>{blog.title}            <DeleteOutlined style={{ float: 'right', width: '20px' }} onClick={handleDeleteBlog} /><EditOutlined style={{ float: 'right', width: '20px' }} /></h3>
+                            <h3>{blog.title}<DeleteOutlined style={{ float: 'right', width: '20px' }} onClick={handleDeleteBlog(blog._id)} /><EditOutlined style={{ float: 'right', width: '20px' }} /></h3>
                             <p>{blog.description}</p>
                         </Col>
                     ))}

@@ -4,11 +4,8 @@ export const createblog = async (req, res) => {
 
     const { title, description, date } = req.body;
 
-
-
-
     try {
-        const newblog = new notemodel({ title, description, date, user: req.user.id });
+        const newblog = new notemodel({ title, description, date });
 
         await newblog.save();
         res.status(200).json({ message: "blog created successfully" })
@@ -19,7 +16,7 @@ export const createblog = async (req, res) => {
 
 export const Showblogdata = async (req, res) => {
     try {
-        const blogdata = await notemodel.find();
+        const blogdata = await notemodel.findById(req.params.id);
 
         if (!blogdata || blogdata.length === 0) {
             return res.status(404).json({ message: "No blog posts found" });
@@ -34,7 +31,7 @@ export const Showblogdata = async (req, res) => {
 export const deleteblogdata = async (req, res) => {
 
     try {
-        const blogdata = await notemodel.find(req.params.id);
+        const blogdata = await notemodel.findById(req.params.id);
 
         if (!blogdata) {
             return res.status(404).json({ message: "No blog posts found" });

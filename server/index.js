@@ -5,9 +5,9 @@ import bodyParser from 'body-parser'
 import blogrouter from './routes/blogroutes.js'
 import dotenv  from 'dotenv'
 import cors from 'cors';
-import session  from 'express-session';
-import jwt  from 'jsonwebtoken';
-const JWT_SECRET = 'Harryisagoodb$oy';
+
+
+
 dotenv.config();
 
 

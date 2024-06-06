@@ -4,7 +4,7 @@ import express from 'express'
 const router = express.Router();
 
 router.post('/blog', createblog);
-router.get('/showblog/:id', Showblogdata);
+router.get('/showblog', Showblogdata);
 router.put('/updateblog/:id', updateblogdata);
 router.delete('/deleteblog/:id', deleteblogdata);
 

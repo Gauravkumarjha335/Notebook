@@ -1,9 +1,6 @@
 import usermodel from '../models/Usermodel.js';
 
 import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken';
-const JWT_SECRET = 'Gaurav';
-
 
 //  Signup controller
 
@@ -24,9 +21,6 @@ export const signupcontroller = async (req, res) => {
   try {
     const usercreate = usermodel.create({ email, name, password: hashpassword });
 
-
-
-
     res.status(201).json({ msg: usercreate })
   } catch (error) {
     console.error("Error creating user:", error);
@@ -36,8 +30,6 @@ export const signupcontroller = async (req, res) => {
     });
   }
 };
-
-
 
 //  Login controller
 
@@ -67,10 +59,6 @@ export const logincontroller = async (req, res) => {
     return res.status(500).send('Server Error');
   }
 };
-
-
-
-
 
 //  Login with google controller
 

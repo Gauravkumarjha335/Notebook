@@ -1,20 +1,20 @@
 import mongoose from "mongoose";
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 const NotesSchema = new Schema({
-    title:{
-        type:String,
-        required:true
+    title: {
+        type: String,
+        required: true
     },
-    description:{
-        type : String,
-        require : true
+    description: {
+        type: String,
+        require: true
     },
-    date:{
-        type : Date,
+    date: {
+        type: Date,
         default: Date.now,
     }
 })
 
-const notemodel = mongoose.model('notes' , NotesSchema);
+const notemodel = mongoose.model('notes', NotesSchema);
 export default notemodel;
