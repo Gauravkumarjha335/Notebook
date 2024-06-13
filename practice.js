@@ -1,67 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // Assuming you're using axios for making HTTP requests
-import { Row, Col, Container } from 'reactstrap'
-import {
-
-    EditOutlined, DeleteOutlined
-} from '@ant-design/icons';
-
-
-function ShowBlog() {
-    const [blogData, setBlogData] = useState([]);
-
-    useEffect(() => {
-        var fetchBlogData = async () => {
-            try {
-                const response = await fetch('/api/auth/showblog');
-                const responsejson = await response.json();
-                setBlogData(responsejson)
-
-
-                // setBlogData(response.data);
-            } catch (error) {
-                console.error('Error fetching blog data:', error);
-            }
-        };
-
-        fetchBlogData();
-    }, []);
-
-
-
-    const handleDeleteBlog = async (id) => {
-        try {
-            const response = await axios.delete(`http://localhost:8000/api/auth/deleteblog/${id}`).then(() => {
-                if (response.ok) {
-                    alert("blog deleted Sussefully")
-                }
-            })
-
-
-        } catch (error) {
-            console.error('Error deleting blog:', error);
-
-        }
-    };
-
-    return (
-        <div>
-
-            <Container>
-                <Row style={{ display: 'flex', gap: '10px' }}>
-                    {/* Check if blogData is an array before calling map */}
-                    {Array.isArray(blogData) && blogData.map((blog) => (
-                        <Col md={2} style={{ boxSizing: 'border-box', border: '1px solid black', padding: '10px' }} key={blog._id}>
-
-                            <h3>{blog.title}<DeleteOutlined style={{ float: 'right', width: '20px' }} onClick={handleDeleteBlog(blog._id)} /><EditOutlined style={{ float: 'right', width: '20px' }} /></h3>
-                            <p>{blog.description}</p>
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
-
-        </div>
-    );
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        // Process data
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle the error
+    }
 }
 
-export default ShowBlog;
+
+fetchData()

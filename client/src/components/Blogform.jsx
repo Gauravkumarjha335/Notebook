@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import { useState } from 'react'
 import { Container } from 'reactstrap'
 
 function Blogform() {
@@ -6,9 +6,9 @@ function Blogform() {
     const [formdata, setformdata] = useState({
         email: '',
         password: '',
-        name: ''
+        name: '',
+        file: ''
     });
-
     const handlechange = (e) => {
         setformdata({ ...formdata, [e.target.name]: e.target.value });
     }
@@ -30,23 +30,21 @@ function Blogform() {
             console.error('An error occurred:', error);
         }
     }
+    
     return (
         <>
             <Container style={{ margin: 'auto' }} >
-
                 <h1>Create your blog</h1>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="">Enter your title</label>
                     <input type="text" name='title' value={formdata.title} onChange={handlechange} />
                     <label htmlFor="">Enter your description</label>
                     <input type="text" name='description' value={formdata.description} onChange={handlechange} />
+                    <input type='file' name='file' value={formdata.file} onChange={handlechange} />
                     <button type='submit'>Submit </button>
                 </form>
-
             </Container>
-
         </>
     )
 }
-
 export default Blogform

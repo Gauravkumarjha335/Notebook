@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { GoogleOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 const Signup = () => {
     const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ const Signup = () => {
             })
             if (fetchdata.ok) {
                 alert("User Created"),
-                navigate('/')
+                    navigate('/')
             } else {
                 alert("User Not Created")
             }
@@ -67,10 +67,16 @@ const Signup = () => {
                 <button type="submit" className="btn btn-primary btn-block btn-large">
                     Signup
                 </button>
+                <button type="submit" className="btn btn-primary btn-block btn-large gap-2 mt-3">
+                <span>   <span>Login with Google        </span><GoogleOutlined /></span>
+
+
+            </button>
             </form>
             <p style={{ color: 'white' }}>if you have account </p>
             <p>Click hear</p>
             <Link to={'/'}>login</Link>
+          
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios'; // Using Axios for making HTTP requests
 import { Row, Col, Container, Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
@@ -85,7 +85,7 @@ function ShowBlog() {
             <Container>
                 <Row style={{ display: 'flex', gap: '10px' }}>
                     {blogData.map((blog) => (
-                        <Col md={2} style={{ boxSizing: 'border-box', border: '1px solid black', padding: '10px' }} key={blog._id}>
+                        <Col md={3} style={{ boxSizing: 'border-box', border: '1px solid black', padding: '10px' }} key={blog._id}>
                             <h3>{blog.title}
                                 <DeleteOutlined style={{ float: 'right', width: '20px' }} onClick={() => handleDeleteBlog(blog._id)} />
                                 <EditOutlined style={{ float: 'right', width: '20px' }} onClick={() => handleUpdateBlog(blog)} />

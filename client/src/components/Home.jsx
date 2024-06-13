@@ -9,10 +9,10 @@ function Home() {
 
       <IndexNavbar />
 
-      <Blogform />
+      <Blogform style={{ marginTop: '100px' }} />
 
 
-      <Container style={{ marginTop: '100px' }}>
+      <Container style={{margin : 'auto' , }} >
         <ShowBlog />
       </Container>
 

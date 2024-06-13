@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, } from 'react-router-dom';
+import { GoogleOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 
 
 
@@ -65,10 +65,15 @@ const Login = () => {
           <button type="submit" className="btn btn-primary btn-block btn-large">
             Login
           </button>
+          <button type="submit" className="btn btn-primary btn-block btn-large gap-2 mt-3">
+            <span>   <span>Login with Google        </span><GoogleOutlined /></span>
+
+
+          </button>
         </form>
-        <p style={{ color: 'white' }}>if you don't have account </p>
-        <p>Click hear</p>
-        <Link to={'/signup'}>signup</Link>
+        <p style={{ color: 'white' , marginTop : '10px'}}>if you don&apos;t have account </p>
+        <span>Click hear </span>
+        <Link style={{color : 'blue'}} to={'/signup'}>signup</Link>
       </div>
     </>
   );

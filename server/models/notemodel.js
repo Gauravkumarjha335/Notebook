@@ -13,7 +13,11 @@ const NotesSchema = new Schema({
     date: {
         type: Date,
         default: Date.now,
+    },
+    file:{
+        type: Buffer,
     }
+   
 })
 
 const notemodel = mongoose.model('notes', NotesSchema);
